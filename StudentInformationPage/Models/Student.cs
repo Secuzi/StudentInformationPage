@@ -17,6 +17,8 @@ namespace StudentInformationPage.Models
         public string? Course { get; set; }
         [Display(Name = "Year Level")]
         public int YearLevel { get; set; }
+        public string? Gender { get; set; }
+        public int Age { get; set; }
 
     }
 }
