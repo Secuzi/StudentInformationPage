@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StudentInformationPage.Data;
 
@@ -11,9 +12,11 @@ using StudentInformationPage.Data;
 namespace StudentInformationPage.Migrations
 {
     [DbContext(typeof(StudentInformationPageContext))]
-    partial class StudentInformationPageContextModelSnapshot : ModelSnapshot
+    [Migration("20250804083213_newUpdatexx")]
+    partial class newUpdatexx
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -37,16 +40,12 @@ namespace StudentInformationPage.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("ContactNumber")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Course")
-                        .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstName")
@@ -54,7 +53,6 @@ namespace StudentInformationPage.Migrations
                         .HasColumnType("nvarchar(30)");
 
                     b.Property<string>("Gender")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
