@@ -17,9 +17,7 @@ html {
   min-height: 100%;
 }
 
-body {
-  margin-bottom: 60px;
-}
+
 
 .glass-card {
     background: rgba(255, 255, 255, 0.1);
