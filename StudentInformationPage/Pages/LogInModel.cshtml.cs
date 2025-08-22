@@ -11,22 +11,28 @@ namespace StudentInformationPage.Pages
         [Required(ErrorMessage = "Password not valid.")]
         [DataType(DataType.Password)]
         public string Password { get; set; } = string.Empty;
-    
+
     }
 
     public class LogInModelModel : PageModel
     {
         [BindProperty]
         public Credential Credential { get; set; } = new Credential();
-
+        public bool LoginFailed { get; set; } = false;
 
         public IActionResult OnPost()
         {
+
+            if (String.IsNullOrEmpty(Credential.Username) || String.IsNullOrEmpty(Credential.Password))
+            {
+                return Page();
+            }
             if(Credential.Username == "Admin" && Credential.Password == "admin123")
             {
                 return RedirectToPage("/student-information/Index");
 
             }
+              LoginFailed = true; 
             return Page();
 
         }
