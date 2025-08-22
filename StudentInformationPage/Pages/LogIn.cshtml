@@ -4,26 +4,27 @@
     Layout = "~/Pages/Shared/_LogInLayout.cshtml";
 }
 
-<div class="d-flex align-items-center justify-content-center vh-100 "
-     style="background: #000000; background: linear-gradient(270deg, rgba(0,0,0,1) 0%, rgba(95,26,95,1) 75%);">
+
+<div class="d-flex align-items-center justify-content-center vh-100"
+     style="background: linear-gradient(270deg, rgba(0,0,0,1) 0%, rgba(95,26,95,1) 75%);">
     <div class="card glass-card shadow-xl p-4 rounded-3" style="max-width: 400px; width: 100%;">
-        <h3 class="text-center mb-4 text-white">Login</h3>
+        <h3 class="text-center mb-4 text-white fw-bold">Login</h3>
         <form method="post" novalidate>
             <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
 
             <div class="form-floating mb-3">
-                <input asp-for="Credential.Username" class="form-control" placeholder="Username" />
-                <label asp-for="Credential.Username"></label>
+                <input asp-for="Credential.Username" class="form-control glass-input" placeholder="Username" />
+                <label asp-for="Credential.Username" class="text-white-50"></label>
                 <span class="text-danger small" asp-validation-for="Credential.Username"></span>
             </div>
 
-            <div class="form-floating mb-3">
-                <input asp-for="Credential.Password" type="password" class="form-control" placeholder="Password" />
-                <label asp-for="Credential.Password"></label>
+            <div class="form-floating mb-4">
+                <input asp-for="Credential.Password" type="password" class="form-control glass-input" placeholder="Password" />
+                <label asp-for="Credential.Password" class="text-white-50"></label>
                 <span class="text-danger small" asp-validation-for="Credential.Password"></span>
             </div>
 
-            <button type="submit" class="btn btn-primary w-100">Sign In</button>
+            <button type="submit" class="btn glass-btn w-100 py-2 fw-semibold">Sign In</button>
         </form>
     </div>
 </div>
