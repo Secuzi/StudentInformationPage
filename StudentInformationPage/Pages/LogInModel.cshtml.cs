@@ -16,6 +16,7 @@ namespace StudentInformationPage.Pages
 
     public class LogInModelModel : PageModel
     {
+        [BindProperty]
         public Credential Credential { get; set; } = new Credential();
 
 
@@ -23,7 +24,7 @@ namespace StudentInformationPage.Pages
         {
             if(Credential.Username == "Admin" && Credential.Password == "admin123")
             {
-                return RedirectToPage("/index");
+                return RedirectToPage("/student-information/Index");
 
             }
             return Page();
