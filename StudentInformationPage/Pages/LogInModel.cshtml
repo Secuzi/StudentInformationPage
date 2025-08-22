@@ -4,28 +4,28 @@
     Layout = "~/Pages/Shared/_LogInLayout.cshtml";
 }
 
-<div class="d-flex align-items-center justify-content-center vh-100 bg-dark">
-    <div class="card bg-secondary text-light shadow-lg p-4 rounded-3" style="max-width: 400px; width: 100%;">
+<div class="d-flex align-items-center justify-content-center vh-100">
+    <div class="card shadow-lg p-4 rounded-3" style="max-width: 400px; width: 100%;">
         <h3 class="text-center mb-4">Login</h3>
         <form method="post" novalidate>
             <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
 
-            <div class="form-floating mb-3 text-dark">
-                <input asp-for="Credential.Username" class="form-control bg-dark text-light border-0" placeholder="Username" />
-                <label asp-for="Credential.Username" class="text-light"></label>
+            <div class="form-floating mb-3">
+                <input asp-for="Credential.Username" class="form-control" placeholder="Username" />
+                <label asp-for="Credential.Username"></label>
                 <span class="text-danger small" asp-validation-for="Credential.Username"></span>
             </div>
 
-            <div class="form-floating mb-3 text-dark">
-                <input asp-for="Credential.Password" type="password" class="form-control bg-dark text-light border-0" placeholder="Password" />
-                <label asp-for="Credential.Password" class="text-light"></label>
+            <div class="form-floating mb-3">
+                <input asp-for="Credential.Password" type="password" class="form-control" placeholder="Password" />
+                <label asp-for="Credential.Password"></label>
                 <span class="text-danger small" asp-validation-for="Credential.Password"></span>
             </div>
 
             <button type="submit" class="btn btn-primary w-100">Sign In</button>
 
             <div class="text-center mt-3">
-                <a href="#" class="text-light text-decoration-none">Forgot your password?</a>
+                <a href="#" class="text-decoration-none">Forgot your password?</a>
             </div>
         </form>
     </div>
