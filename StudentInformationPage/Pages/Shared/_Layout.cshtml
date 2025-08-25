@@ -14,12 +14,9 @@
         body {
             background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(95, 26, 95, 1) 100%);
             min-height: 100vh;
-            
-           
         }
 
         .navbar {
-        
             backdrop-filter: blur(12px);
             border-radius: 0 0 12px 12px;
         }
@@ -42,20 +39,34 @@
                 background-color: rgba(255,255,255,0.2) !important;
             }
 
-        footer {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(8px);
-            color: #e0e0e0;
+        /* Modal Styling for Consistency */
+        .modal-content {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.15);
+            color: #fff;
         }
 
-            footer a {
-                color: #d3a1ff;
-                text-decoration: none;
-            }
+        .modal-header {
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+        }
 
-                footer a:hover {
-                    text-decoration: underline;
-                }
+        .modal-footer {
+            border-top: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .btn-accent {
+            background-color: #d3a1ff;
+            color: #000;
+            font-weight: 500;
+            border-radius: 8px;
+        }
+
+            .btn-accent:hover {
+                background-color: #b97deb;
+                color: #fff;
+            }
 
         main {
             flex: 1;
@@ -64,9 +75,11 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm shadow-sm" >
+        <nav class="navbar navbar-expand-sm shadow-sm">
             <div class="container">
-                <a class="navbar-brand fw-bold" asp-area="" asp-page="/student-information/Index">Student Information Page</a>
+                <a class="navbar-brand fw-bold" asp-area="" asp-page="/student-information/Index">
+                    Student Information Page
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
                         aria-label="Toggle navigation">
@@ -79,9 +92,6 @@
                         <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-page="/student-information/Index">Home</a>
                         </li>
-                        @* <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-page="/Privacy">Privacy</a>
-                        </li> *@
                         <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-page="/student-information/Index">Student</a>
                         </li>
@@ -90,11 +100,10 @@
                     <!-- Right side nav -->
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <form method="post" asp-page="/LogIn" class="d-inline">
-                                <button type="submit" class="btn btn-outline-dark btn-sm">
-                                    <i class="bi bi-box-arrow-right"></i> Logout
-                                </button>
-                            </form>
+                            <button type="button" class="btn btn-outline-dark btn-sm"
+                                    data-bs-toggle="modal" data-bs-target="#logoutModal">
+                                <i class="bi bi-box-arrow-right"></i> Logout
+                            </button>
                         </li>
                     </ul>
                 </div>
@@ -108,12 +117,29 @@
         </main>
     </div>
 
-   @*  <footer class="footer text-center py-3 mt-auto">
-        <div class="container">
-            &copy; 2025 - Filomeno Student Information Page -
-            <a asp-area="" asp-page="/Privacy">Privacy</a>
+    <!-- Logout Confirmation Modal -->
+    <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content shadow-lg">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-semibold" id="logoutModalLabel">
+                        <i class="bi bi-exclamation-triangle me-2 text-warning"></i>Confirm Logout
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to log out of your account?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-dark btn-sm" style="padding: 0.5rem 1.2rem; border-radius:
+0.75rem;" data-bs-dismiss="modal">Cancel</button>
+                    <form method="post" asp-page="/LogIn" class="d-inline">
+                        <button type="submit" class="btn btn-accent btn-sm">Yes, Logout</button>
+                    </form>
+                </div>
+            </div>
         </div>
-    </footer> *@
+    </div>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
