@@ -9,7 +9,7 @@
      style="background: linear-gradient(270deg, rgba(0,0,0,1) 0%, rgba(95,26,95,1) 75%);">
     <div class="card glass-card shadow-xl p-4 rounded-3" style="max-width: 400px; width: 100%;">
         <h3 class="text-center mb-4 text-white fw-bold">Login</h3>
-        <form method="post" novalidate>
+        <form method="post" id="loginform" novalidate>
             <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
 
             <div class="form-floating mb-3">
@@ -34,7 +34,7 @@
     <div class="toast-container position-fixed bottom-0 end-0 p-3">
         @if (Model.LoginFailed)
         {
-            <div class="toast align-items-center text-white bg-danger border-0 show" role="alert">
+            <div class="toast align-items-center text-white bg-danger border-0" role="alert" data-bs-autohide="true" data-bs-delay="3000">
                 <div class="d-flex">
                     <div class="toast-body">
                         Invalid username or password.
@@ -50,10 +50,18 @@
 @section Scripts {
     <script>
         // Automatically show toast if it exists
-        var toastElList = [].slice.call(document.querySelectorAll('.toast'))
-        toastElList.map(function (toastEl) {
-            var toast = new bootstrap.Toast(toastEl)
-            toast.show()
-        })
+
+        document.addEventListener("DOMContentLoaded", function () {
+            var toastEl = document.querySelector(".toast");
+            if (toastEl) {
+                var toast = new bootstrap.Toast(toastEl, {
+                    autohide: true,
+                    delay: 3000 // 3 seconds
+                });
+                toast.show();
+            }
+        });
+       
+
     </script>
 }
