@@ -1,4 +1,4 @@
-html {
+﻿html {
   font-size: 14px;
 }
 
@@ -17,7 +17,9 @@ html {
   min-height: 100%;
 }
 
-
+.footer {
+    position: static !important;
+}
 
 .glass-card {
     background: rgba(255, 255, 255, 0.1);
@@ -70,3 +72,128 @@ html {
     z-index: 1055; /* keep above card */
     margin-bottom: 0;
 }
+
+.gold-gradient-text {
+    background: linear-gradient(90deg, #FFD700, #FFA500);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Table Glass Effect */
+.table.glass-table {
+    color: #e8e8e8;
+    border-collapse: collapse;
+    border-spacing: 0 0.5rem;
+}
+
+    .table.glass-table thead {
+        background: rgba(255, 215, 0, 0.15); /* subtle gold header */
+        color: #FFD700;
+        font-weight: 600;
+        border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+    }
+
+    .table.glass-table tbody tr {
+        background: rgba(255, 255, 255, 0.05);
+        transition: all 0.3s ease;
+    }
+
+        .table.glass-table tbody tr:hover {
+            background: rgba(150, 75, 150, 0.3); /* purple glass hover */
+
+        }
+
+    .table.glass-table td,
+    .table.glass-table th {
+        border: none !important;
+        vertical-align: middle;
+        color: #f8f9fa; /* keep text readable */
+        background: transparent !important; /* removes Bootstrap's white */
+    }
+
+    /* Action buttons inside table */
+    .table.glass-table .btn {
+        background: rgba(255, 255, 255, 0.15);
+        border: none;
+        backdrop-filter: blur(6px);
+    }
+
+        .table.glass-table .btn:hover {
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+#email_link > * {
+    color: #BB86FC;
+}
+
+select.glass-input {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #fff;
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 8px;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+    /* On focus (when active) */
+    select.glass-input:focus {
+        background: rgba(187, 134, 252, 0.15); /* subtle tinted glow */
+        border-color: #BB86FC;
+        box-shadow: 0 0 8px rgba(187, 134, 252, 0.4);
+        color: #fff;
+    }
+
+    /* For the dropdown options */
+    select.glass-input option {
+        background: rgba(187, 134, 252, 0.15); /* translucent dark */
+        backdrop-filter: blur(6px); /* some browsers ignore this */
+        color: #fff;
+        border: none;
+    }
+
+.text-accent {
+    color: #BB86FC; /* matches your accent purple */
+}
+.detail-label {
+    font-size: 0.85rem;
+    color: #aaa;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+.detail-value {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #fff;
+    margin: 0;
+}
+.btn-accent {
+    background-color: #BB86FC;
+    border: none;
+    color: #fff;
+    font-weight: 500;
+    padding: 0.5rem 1.2rem;
+    border-radius: 0.75rem;
+    transition: all 0.2s ease-in-out;
+}
+
+    .btn-accent:hover {
+        background-color: #9c66db;
+    }
+
+.btn-outline-light {
+    border: 1px solid #ccc;
+    color: #ddd;
+    border-radius: 0.75rem;
+    padding: 0.5rem 1.2rem;
+    background: transparent;
+    transition: all 0.2s ease-in-out;
+}
+
+    .btn-outline-light:hover {
+        background: rgba(255, 255, 255, 0.1);
+        color: #fff;
+    }

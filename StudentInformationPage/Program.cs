@@ -26,7 +26,8 @@ app.UseRouting();
 app.UseAuthorization();
 app.MapGet("/", context =>
 {
-    context.Response.Redirect("/LogIn");
+    context.Response.Redirect("/student-information/Index");
+    //context.Response.Redirect("/LogIn");
     return Task.CompletedTask;
 });
 app.MapRazorPages();
